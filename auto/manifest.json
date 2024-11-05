@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "AUTO",
+  "version": "1.0",
+  "description": "Ejecutar Jobs de forma automatica",
+  "permissions": ["storage","notifications","activeTab","tabs","scripting","downloads"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["html2canvas.min.js", "content.js"]
+    }
+  ],
+  "options_page": "options.html"
+}
